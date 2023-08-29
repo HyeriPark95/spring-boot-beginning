@@ -2,7 +2,7 @@
 
 <table class="table">
     <thead>
-    <tr>
+<tr>
         <th scope="col">ID</th>
         <th scope="col">Title</th>
         <th scope="col">Content</th>
@@ -12,11 +12,13 @@
     {{#articleList}}  <!--이게 리스트인 경우 알아서 반복을 돌림-->
     <tr>
         <th scope="row">{{id}}</th>
-        <td>{{title}}</td>
+        <td><a href="/articles/{{id}}">{{title}}</a></td>
         <td>{{content}}</td>
     </tr>
     {{/articleList}}  <!--여기까지-->
     </tbody>
 </table>
+
+<a href="/articles/new">New Article</a>
 
 {{>layouts/footer}}

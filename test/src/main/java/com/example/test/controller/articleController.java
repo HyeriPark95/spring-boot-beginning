@@ -32,7 +32,7 @@ public class articleController {
         //2. Repository에게 Entity를 DB안에 저장하게 함
         Article saved = articleRepository.save(article);  //저장메서드
         log.info(saved.toString());
-        return "";
+        return "redirect:/articles/"+saved.getId();
     }
     @GetMapping("/articles/{id}")
     public String show(@PathVariable Long id,Model model){ //파라미터로 받는 값
