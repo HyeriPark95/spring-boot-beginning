@@ -1,23 +1,15 @@
 package com.example.test.dto;
 
 import com.example.test.entity.Article;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
+@AllArgsConstructor //생성자 어노테이션
+@ToString //toSting 메서드 어노테이션
 public class articleForm {
+
     private String title;
     private String content;
-
-    public articleForm(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-
-    @Override
-    public String toString() {
-        return "articleForm{" +
-                "title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
 
     public Article toEntity(){
         return new Article(null,title,content);
