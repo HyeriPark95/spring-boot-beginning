@@ -1,9 +1,6 @@
 package com.example.test.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,10 +13,17 @@ import javax.annotation.processing.Generated;
 @NoArgsConstructor
 @ToString
 @Getter
-public class Article {
+@SequenceGenerator(
+        name = "id_generator",
+        sequenceName = "BOARD_SEQ",
+        initialValue = 4,
+        allocationSize = 1
+)
+public class Article {  //이 필드를 바탕으로 데이터베이스 생성
 
     @Id  //대표값을 지정
-    @GeneratedValue  //시퀀스처럼 번호 자동 생성 1,2,3,...
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "id_generator")  //시퀀스처럼 번호 자동 생성 1,2,3,...
     private Long id;
 
     @Column
