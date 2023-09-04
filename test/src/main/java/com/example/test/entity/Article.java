@@ -8,7 +8,7 @@ import lombok.ToString;
 
 import javax.annotation.processing.Generated;
 
-@Entity
+@Entity   //db가 해당 객체를 인식 (이 이름으로 테이블을 만든다)
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -32,4 +32,10 @@ public class Article {  //이 필드를 바탕으로 데이터베이스 생성
     @Column
     private String content;
 
+    public void patch(Article article) {
+        if(article.title!=null)
+            this.title = article.title;
+        if(article.content!=null)
+            this.content = article.content;
+    }
 }
